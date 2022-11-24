@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Menu from './components/Menu'
+import Header from './components/Header'
+import Banner from './components/Banner'
+import Secciones from './components/Secciones'
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <Menu />
+      <Header />
+      <Banner />
+      <Secciones />
     </div>
   );
 }

@@ -1,0 +1,26 @@
+.contenedor-secciones{
+    width: 100vw;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex: row;
+    justify-content: center;
+}
+
+.icono-reclamos{
+    width: 80px;
+}
+
+.link-reclamos, .link-reclamos:visited{
+    text-decoration-color: #0074b5;
+    color: #0074b5;
+}
+
+.descripcion-reclamos{
+    padding: 5px;
+}
+
+.caja-seccion{
+    width: 25em;
+    padding: 20px;
+}

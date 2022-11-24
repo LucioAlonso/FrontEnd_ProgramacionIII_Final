@@ -1,27 +1,11 @@
-.contenedor-general{
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.header-Principal{
-    display: flex;
-    height: 104px;
-}
-
-.logo-Principal{
-    padding-top: 2.75em;
-    padding-left: 6vw;
-    height: 2em;
-}
-
-
 .header-Secundario{
     position: relative;
-    height: auto;
     width: 100vw;
     background-color: #005387;
+    display: flex;
+    flex-wrap: wrap;
+    flex: row;
+    justify-content: center;
 }
 
 .banner-imagen {
@@ -43,7 +27,7 @@
     padding-left: 10vw;
 }
 
-.tramites-Links, a:visited{
+.tramites-Links, .links-reclamos-banner:visited{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -64,5 +48,4 @@
 .historial-reclamos{
     border-left: solid 1px;
     padding-left: 20px;
-    border-color: #ffffff;
 }
