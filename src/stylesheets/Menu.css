@@ -6,13 +6,14 @@
 }
 
 .header-Principal{
-    height: 110px;
+    display: flex;
+    height: 104px;
 }
 
 .logo-Principal{
     padding-top: 2.75em;
-    padding-left: 6em;
-    height: 40px;
+    padding-left: 6vw;
+    height: 2em;
 }
 
 
@@ -21,34 +22,47 @@
     height: auto;
     width: 100vw;
     background-color: #005387;
-    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
 }
 
-.banner {
-    padding-top: 3px;
+.banner-imagen {
+    padding-top: 2px;
     object-fit: cover;
     width: 100vw;
-    height: 400px;
+    height:440px;
 }
 
 .titulo-centroBanner{
-    -webkit-text-stroke: 0.5px black;
+    font-size: 2.313rem;
+    height: 3.9em;
     display: flex;
     color: #ffffff;
-    position:inherit;
+    position:absolute;
     height: 0;
     top: 6em;
     align-items: center;
-    padding-left: 100px;
+    padding-left: 10vw;
 }
 
-.Tramites-Links, a:visited{
+.tramites-Links, a:visited{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     flex-direction: row;
     gap: 1rem;
     color: #ffffff;
-    padding-bottom: 5px;
+    height: auto;
+}
+
+.barra-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 16px;
+    
+}
+
+.historial-reclamos{
+    border-left: solid 1px;
+    padding-left: 20px;
+    border-color: #ffffff;
 }

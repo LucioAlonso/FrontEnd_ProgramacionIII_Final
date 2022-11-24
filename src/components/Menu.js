@@ -12,17 +12,18 @@ const Menu = () => {
         />
       </div>
       <div className='header-Secundario'>
-        <h1 className='titulo-centroBanner'>Centro de reclamos de la Ciudad de Buenos Aires</h1>
-        <img 
-        className='banner'
-        src={require ('../images/banner.jpg')}
-        alt='Logo de la ciudad'
-        />
-        <nav>
-          <div className='Tramites-Links'>
-            <p className='Tramites-Titulo'>Tramites: </p>
+        <div className='banner'>
+          <img 
+          className='banner-imagen'
+          src={require ('../images/banner.jpg')}
+          alt='Logo de la ciudad' />
+          <h1 className='titulo-centroBanner'>Reclamos Ciudad de Buenos Aires</h1>
+        </div>
+        <nav className='barra-nav'>
+          <div className='tramites-Links'>
+            <p className='tramites-Titulo'>Tramites: </p>
             <a href='#'>Nuevo Reclamo</a>
-            <a href='#'>Historial de Reclamos</a>
+            <a className='historial-reclamos' href='#'>Historial de Reclamos</a>
           </div>
         </nav>
       </div>
