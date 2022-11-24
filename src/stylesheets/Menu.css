@@ -1,0 +1,54 @@
+.contenedor-general{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header-Principal{
+    height: 110px;
+}
+
+.logo-Principal{
+    padding-top: 2.75em;
+    padding-left: 6em;
+    height: 40px;
+}
+
+
+.header-Secundario{
+    position: relative;
+    height: auto;
+    width: 100vw;
+    background-color: #005387;
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+}
+
+.banner {
+    padding-top: 3px;
+    object-fit: cover;
+    width: 100vw;
+    height: 400px;
+}
+
+.titulo-centroBanner{
+    -webkit-text-stroke: 0.5px black;
+    display: flex;
+    color: #ffffff;
+    position:inherit;
+    height: 0;
+    top: 6em;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.Tramites-Links, a:visited{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    color: #ffffff;
+    padding-bottom: 5px;
+}
