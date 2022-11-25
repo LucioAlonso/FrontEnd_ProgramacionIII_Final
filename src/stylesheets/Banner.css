@@ -27,7 +27,7 @@
     padding-left: 10vw;
 }
 
-.tramites-Links, .links-reclamos-banner:visited{
+.tramites-Links, .links-reclamos-banner:visited, .links-reclamos-banner{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

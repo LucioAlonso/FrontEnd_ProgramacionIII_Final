@@ -1,0 +1,23 @@
+.contenedor-usuario{
+    display: flex;
+    width: 30vw;
+    gap: 1.5rem;
+    align-items:center;
+    padding-top: 20px;
+    width: auto;
+    padding-right: 6vmin;
+    margin-left: auto;
+}
+
+.foto-perfil {
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: inset 1px #fdd306;
+}
+
+
+.nombre-perfil{
+    width: 1em;
+}

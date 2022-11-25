@@ -1,40 +1,6 @@
-.contenedor-general{
+.header-principal{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     width: 100vw;
-}
-
-.header-logo{
-    height: 100px;
-    padding-left: 6vmin;
-}
-
-.logo-Principal{
-    padding-top: 2.5em;
-    height: 2em;
-}
-
-.contenedor-usuario{
-    display: flex;
-    width: 30vw;
-    gap: 1.5rem;
-    align-items:center;
-    padding-top: 20px;
-    width: auto;
-    padding-right: 6vmin;
-    margin-left: auto;
-}
-
-.foto-perfil {
-    object-fit: cover;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: inset 1px #fdd306;
-}
-
-
-.nombre-perfil{
-    width: 1em;
 }

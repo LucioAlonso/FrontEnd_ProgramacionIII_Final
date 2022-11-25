@@ -1,30 +1,15 @@
 import React from 'react';
 import '../stylesheets/Header.css';
+import Header_User from './Header_User';
+import Header_Logo from './Header_Logo';
 
 const Header = () => {
+  //aca puedo meter una funcion logica que devuelva una cosa o la otra si el usuario inicio sesion o no.
   return (
-    <div className='contenedor-general'>
-      <div className='header-logo'>
-        <img 
-        className='logo-Principal'
-        src={require ('../images/logo.png')}
-        alt='Logo de la ciudad'
-        />
-      </div>
-      <div className='contenedor-usuario'>
-        <div className='nombre-perfil-usuario'>
-          <p className='nombre-perfil'>Lucio</p>
-        </div>
-        <div className='foto-perfil-usuario'>
-          <img 
-            className='foto-perfil'
-            src={require('../images/foto-perfil-prueba.jpg')}
-            alt='Foto de perfil del usuario'
-          />
-        </div>
-      </div>
-    </div>
-    
+      <div className='header-principal'>
+        <Header_Logo />
+        <Header_User />
+      </div>   
   );
 }
 
