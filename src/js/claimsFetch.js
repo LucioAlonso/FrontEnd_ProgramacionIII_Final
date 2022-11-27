@@ -19,11 +19,11 @@ const getAllClaims = async claim => {
 	let url = `http://192.168.0.134:3000/claim/all`;
 	try {
 		let res = await handleFetch(url, options);
-		let dogImage = await res.json();
-		console.log(dogImage)
+		let claimsData = await res.json();
+		console.log(claimsData)
 	} catch (err) {
 		alert(err);
 	}
 };
 
-module.exports = getAllClaims;
+export default getAllClaims;

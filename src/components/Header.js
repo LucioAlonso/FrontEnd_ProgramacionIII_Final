@@ -5,6 +5,9 @@ import Header_Logo from './Header_Logo';
 
 const Header = () => {
   //aca puedo meter una funcion logica que devuelva una cosa o la otra si el usuario inicio sesion o no.
+
+  
+
   return (
       <div className='header-principal'>
         <Header_Logo />

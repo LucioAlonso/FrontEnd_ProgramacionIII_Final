@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/Banner.css';
+import { BrowserRouter, Link, Route, Routes }  from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -14,8 +15,8 @@ const Banner = () => {
       <nav className='barra-nav'>
         <div className='tramites-Links'>
           <p className='tramites-Titulo'>Trámites más solicidatos: </p>
-          <a className='links-reclamos-banner' href='#'>Nuevo Reclamo</a>
-          <a className='links-reclamos-banner' href='#'>Historial de Reclamos</a>
+          <Link className='links-reclamos-banner' to='/Reclamos/Nuevo'>Nuevo Reclamo</Link>
+          <Link className='links-reclamos-banner' to='/Reclamos/Historial'>Historial de Reclamos</Link>
         </div>
       </nav>
     </div>

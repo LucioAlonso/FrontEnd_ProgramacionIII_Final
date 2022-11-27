@@ -1,0 +1,51 @@
+.contenedor{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 100vw;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.contenedor-login{
+    align-items:center;
+    justify-content: center;
+    padding: 40px 5vmax 40px 5vmax;
+    width: 500px;
+}
+
+.contenedor-boton{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+button {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 3px rgba(160, 160, 160, 0.5);
+    background-color: #fdd306;
+    cursor: pointer;
+}
+
+.otras-opciones, .otras-opciones:visited{
+    display: flex;
+    padding: 15px 30px 30px 30px;
+    align-items:center;
+    justify-content: center;
+    text-decoration-color: #0074b5;
+    color: #0074b5;
+    font-size: 14px;
+    text-decoration-line: none;
+}
+
+.label-alert {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: red;
+}

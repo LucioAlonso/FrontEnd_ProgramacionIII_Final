@@ -1,35 +1,35 @@
 import './App.css';
+import React from 'react';
+import { BrowserRouter, Link, Route, Routes }  from 'react-router-dom';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Secciones from './components/Secciones';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import OlvideMiContraseña from './pages/OlvideMiContraseña/OlvideMiContraseña';
+import Profile from './pages/Profile/Profile';
 import getAllClaims from './js/claimsFetch';
+
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Banner />
-      <Secciones />
-      <script>
-        document.write(5 + 6);
-      </script>
-    </div>
+    <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Banner />
+        </div>
+
+      <Routes>
+        <Route path='/' element={<Secciones />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Cuenta/Olvide-mi-contraseña' element={<OlvideMiContraseña />} />
+        <Route path='/Cuenta/Registrarse' element={<Register />} />
+        <Route path='/Cuenta/Profile' element= {<Profile />}/>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
-  const options = {
-    method: 'GET',
-    headers: {
-      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MzQ1ZTQxY2VlODczNjNjNzFlMTI0MTkiLCJpYXQiOjE2NjkzOTI2NjIsImV4cCI6MTY3MDM5MjY2Mn0.pUJl8o_J_Gx-_Q5m23MICe_-zEoRblMLjYXYNTRKlq0'
-    }
-  }
-
-  let url = 'http://192.168.0.134:3000/claim/all';
-  fetch(url, options)
-  .then(res => res.json())
-  .catch(err=>console.log(err))
-
-  getAllClaims();
-
+getAllClaims()
 
 export default App;
