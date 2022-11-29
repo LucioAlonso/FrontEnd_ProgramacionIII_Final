@@ -1,4 +1,3 @@
-
 const handleFetch = async (url, options) => {
 	const res = await fetch(url, options);
 	return await handleError(res);
@@ -18,13 +17,13 @@ export const loginUser = async (userName, password) => {
 			'Content-Type': 'application/json'
 		}
 	}
-	
 	try {
 		let res = await handleFetch(url, options);
 		let loginData = await res.json();
-		const {token, data} = loginData;
-		return token
+		return loginData
 	} catch (err) {
-		alert(err);
+		console.log(err)
+		return false;
 	}
 };
+
