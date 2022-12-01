@@ -8,8 +8,7 @@ import AuthContext from '../../context/AuthProvider';
 import useUser from '../../hooks/useUser'
 import Profile from '../Profile/Profile';
 
-
-const Login = () => {
+const Login = ({login}) => {
   const userRef = useRef();
   const errRef = useRef();
 
@@ -29,34 +28,38 @@ const Login = () => {
     setErrMsg('');
   }, [user, pwd])
 
+  let userData = {
+    data : {},
+    token : null
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let loginData = await loginUser(user, pwd)
-    if (loginData.token){
-      setToken(loginData.token)
-      setRol(loginData.data.rol)
+    let {data, token} = await loginUser(user, pwd)
+    if (token){
+      userData = {
+        data,
+        token
+      }
+      login(userData)
       setSuccess(true)
-      setUser(user)
     } else {
       setSuccess(false)
       setErrMsg('Usuario o contraseña invalidos')
     }
   }
 
-  const userData = {
-    token,
-    userName: user,
-    rol
-  };
+
 
   return (
     <>
+    
       {success ? (
-          < Navigate to='/Cuenta/Profile' userData={userData} /> ) : (
+          <Navigate to='/'/> ) : ( 
       <div className='contenedor'>
         <div className='contenedor-login'>
           <h2 className='titulo-inicio-sesion'>Inicio de Sesión</h2>
-          <form onSubmit={handleSubmit}>
+ 
             <input 
               className='container-input'
               type='text'
@@ -79,11 +82,11 @@ const Login = () => {
             />
             <p ref={errRef} className={errMsg ? "label-alert" : "offscreen"} aria-live = "assertive">{errMsg}</p>
             <div className='contenedor-boton'>
-              <button> 
+              <button onClick={handleSubmit}> 
                 Ingresar
               </button>
             </div>
-          </form>
+
 
           <Link to='/Cuenta/Registrarse' className='otras-opciones'>No tengo una cuenta</Link>
           <Link to='/Cuenta/Olvide-mi-contraseña' className='otras-opciones'>Olvidé mi contraseña</Link>
