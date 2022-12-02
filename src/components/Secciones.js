@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/Secciones.css';
+import useUser from '../hooks/useUser';
 
 const Secciones = () => {
+  const {userData} = useUser();
   return (
     <div className='contenedor-secciones'>
       <div className='caja-seccion'>
@@ -20,6 +22,7 @@ const Secciones = () => {
         src={require('../images/reclamos-historial-icono.png')}
         alt = 'Icono de los reclamos'
         />
+        {}
         <Link to='/Reclamos/Historial' className='link-reclamos' ><h3>Historial Reclamos</h3></Link>
         <p className='descripcion-reclamos'>Mirá el estado de todos tus reclamos.</p>
       </div>

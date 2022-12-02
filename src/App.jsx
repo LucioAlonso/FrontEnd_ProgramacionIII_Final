@@ -9,38 +9,37 @@ import Register from './pages/Register/Register';
 import OlvideMiContraseña from './pages/OlvideMiContraseña/OlvideMiContraseña';
 import Profile from './pages/Profile/Profile';
 import { loginUser } from './js/userFetch';
+import UserContext from './context/UserContext';
 
-const App = (props) => {
+const App = () => {
 
-  const [token, setToken] = useState(null)
-  const [rol, setRol] = useState(null)
-  const [user, setUser] = useState(null)
-  const [userID, setUserID] = useState(null)
-
+  const [userData, setUserData] = useState(null)
+  const [personData, setPersonData] = useState(null)
 
   function login(userData) {
-    setToken(userData.token);
-    setRol(userData.data.rol);
-    setUser(userData.data.userName);
-    setUserID(userData.data._id);
+    setUserData(userData)
+  }
+
+  function getPersonData(personData) {
+    setPersonData(personData)
   }
 
   return (  
-    <BrowserRouter>
-            <div className="App">   
-              <Header />
-              <Banner />
-            </div>
-          <Routes>
-            <Route path='/' element={<Secciones />} />
-            <Route path='/Login' element={<Login login={login}/>} />
-            <Route path='/Cuenta/Olvide-mi-contraseña' element={<OlvideMiContraseña />} />
-            <Route path='/Cuenta/Registrarse' element={<Register />} />
-           {/* <Route path='/Cuenta/Profile' element= { userData.token == null ? <Login /> : <Profile />}/> */}
-          </Routes>
-    </BrowserRouter>
-
-    
+    <UserContext.Provider value={{login, getPersonData, userData, personData}}>      
+      <BrowserRouter>
+              <div className="App">   
+                <Header />
+                <Banner />
+              </div>
+            <Routes>
+              <Route path='/' element={<Secciones />} />
+              <Route path='/login' element={<Login login={login} getPersonData={getPersonData}/>} />
+              <Route path='/Cuenta/Olvide-mi-contraseña' element={<OlvideMiContraseña />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/Cuenta/Profile' element= {<Profile />}/>
+            </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 };
 

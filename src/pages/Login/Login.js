@@ -1,21 +1,20 @@
-import React, {useState, useRef, useEffect, useContext } from 'react';
+import React, {useState, useRef, useEffect } from 'react';
 import '../../stylesheets/Login.css';
 import './components/Input/Input.css';
-import { BrowserRouter, Link, Navigate, Route, Routes  }  from 'react-router-dom';
-import  AuthProvider  from '../../context/AuthProvider';
+import {Link, Navigate}  from 'react-router-dom';
 import {loginUser} from '../../js/userFetch';
-import AuthContext from '../../context/AuthProvider';
-import useUser from '../../hooks/useUser'
-import Profile from '../Profile/Profile';
+import {getPerson} from '../../js/personFetch';
+import useUser from '../../hooks/useUser';
 
-const Login = ({login}) => {
+const Login = () => {
+
+  const {login, getPersonData} = useUser()
+
   const userRef = useRef();
   const errRef = useRef();
 
   const [user, setUser] = useState('');
   const [pwd, setPwd ] = useState('');
-  const [token, setToken ] = useState('');
-  const [rol, setRol ] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -41,7 +40,14 @@ const Login = ({login}) => {
         data,
         token
       }
+      
+      let dataPerson = await getPerson(token, data._id)
+      let personData = {
+        data : dataPerson.data
+      };
+
       login(userData)
+      getPersonData(personData)
       setSuccess(true)
     } else {
       setSuccess(false)
@@ -53,7 +59,6 @@ const Login = ({login}) => {
 
   return (
     <>
-    
       {success ? (
           <Navigate to='/'/> ) : ( 
       <div className='contenedor'>
@@ -88,7 +93,7 @@ const Login = ({login}) => {
             </div>
 
 
-          <Link to='/Cuenta/Registrarse' className='otras-opciones'>No tengo una cuenta</Link>
+          <Link to='/register' className='otras-opciones'>No tengo una cuenta</Link>
           <Link to='/Cuenta/Olvide-mi-contraseña' className='otras-opciones'>Olvidé mi contraseña</Link>
         </div>
       </div>

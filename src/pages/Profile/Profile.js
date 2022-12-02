@@ -2,18 +2,25 @@ import React, {useState} from 'react';
 import '../../stylesheets/Profile.css';
 import Input from './components/Input/Input'
 import { BrowserRouter, Link, Route, Routes, Navigate  }  from 'react-router-dom';
+import useUser from '../../hooks/useUser';
 
+const Profile = () => {
 
-const Profile = (props) => {
+  const {userData, personData} = useUser()
 
-  const {userData} = props;
+console.log(userData)
+console.log(personData)
+
   return (
     <>
-      { (userData.token != null) &&
+      { (userData != null) ?
         (<div className='contenedor'>
           <h1>entraste al perfil</h1>
-          <h1>{userData.userName}</h1>
-        </div>)
+
+        </div>
+        ) : (
+          <Navigate to='/login' />
+        )
       }
     </>
     
