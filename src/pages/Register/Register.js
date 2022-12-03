@@ -15,6 +15,12 @@ const Register = () => {
   const [user, setUser] = useState('');
   const [pwd, setPwd ] = useState('');
   const [pwdConfirm, setPwdConfirm ] = useState('');
+  const [email, setEmail ] = useState('');
+  const [name, setName ] = useState('');
+  const [lastName, setLasName ] = useState('');
+  const [dni, setDni ] = useState('');
+  const [phone, setPhone ] = useState('');
+
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -25,7 +31,7 @@ const Register = () => {
 
   useEffect(()=> {
     setErrMsg('');
-  }, [user, pwd, pwdConfirm])
+  }, [user, pwd, pwdConfirm, email, name, lastName, dni, phone])
 
   useEffect(()=> {
     if(pwd != pwdConfirm){
@@ -36,12 +42,17 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let registerData = await registerUser(user, pwd)
-    if(registerData.UserAdd){
-      setSuccess(true);
+
+    if(pwd === pwdConfirm){
+      let registerData = await registerUser(user, pwd, name, lastName, dni, phone, email)
+      if(registerData.UserAdd){
+        setSuccess(true);
+      } else {
+        setErrMsg(registerData.err)
+        setSuccess(false);
+      }
     } else {
-      setErrMsg(registerData.err)
-      setSuccess(false);
+      setErrMsg('Las contraseñas no coinciden')
     }
   }
   
@@ -81,6 +92,51 @@ const Register = () => {
               onChange={(e) => setPwdConfirm(e.target.value)}
               value={pwdConfirm}
               placeholder ='Confirmar Contraseña'
+              required
+            />
+            <input 
+              className='container-input'
+              type='email'
+              id='email'
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder ='Email'
+              required
+            />
+            <input 
+              className='container-input'
+              type='text'
+              id='name'
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              placeholder ='Nombre'
+              required
+            />
+            <input 
+              className='container-input'
+              type='text'
+              id='lastName'
+              onChange={(e) => setLasName(e.target.value)}
+              value={lastName}
+              placeholder ='Apellido'
+              required
+            />
+            <input 
+              className='container-input'
+              type='text'
+              id='dni'
+              onChange={(e) => setDni(e.target.value)}
+              value={dni}
+              placeholder ='DNI'
+              required
+            />
+            <input 
+              className='container-input'
+              type='text'
+              id='phone'
+              onChange={(e) => setPhone(e.target.value)}
+              value={phone}
+              placeholder ='Teléfono'
               required
             />
             <p ref={errRef} className={errMsg ? "label-alert" : "offscreen"} aria-live = "assertive">{errMsg}</p>

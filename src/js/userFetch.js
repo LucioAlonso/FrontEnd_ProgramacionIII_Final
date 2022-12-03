@@ -28,11 +28,11 @@ export const loginUser = async (userName, password) => {
 };
 
 
-export const registerUser = async (userName, password) => {
+export const registerUser = async (userName, password, name, lastname, dni, phone, mail) => {
 	let url = `http://192.168.0.134:3000/user/register`;
 	const options = {
 		method: 'POST',
-		body: JSON.stringify({userName, password}),
+		body: JSON.stringify({userName, password, name, lastname, dni, phone, mail}),
 		headers:{
 			'Content-Type': 'application/json'
 		}
