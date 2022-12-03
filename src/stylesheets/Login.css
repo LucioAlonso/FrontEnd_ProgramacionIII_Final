@@ -8,6 +8,20 @@
     padding-bottom: 50px;
 }
 
+.text{
+    padding-top: 15px;
+    size: 11px;
+}
+
+.text-area{
+    border-radius: 5px;
+    border: 1px solid #a0a0a0;
+    height: 100px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+}
+
 .contenedor-login{
     align-items:center;
     justify-content: center;
