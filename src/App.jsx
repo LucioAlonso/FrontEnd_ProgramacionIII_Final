@@ -15,6 +15,7 @@ import Claim_History from './components/Claim_History';
 const App = () => {
 
   const [userData, setUserData] = useState(null)
+  const [claimsData, setClaimsData] = useState(null)
   const [personData, setPersonData] = useState(null)
 
   function login(userData) {

@@ -47,3 +47,25 @@ export const addClaim = async (userID, claim , category, residence, token) => {
 		return err;
 	}
 };
+
+
+
+
+export const searchClaims = async (userID, token) => {
+	let url = `http://192.168.0.134:3000/claim/${userID}/all`;
+	const options = {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		 	 token
+		}
+	}
+	try {
+		let res = await handleFetch(url, options);
+		let claimsData = await res.json();
+		console.log('estoy aca')
+		return claimsData;
+	} catch (err) {
+		return err;
+	}
+};
