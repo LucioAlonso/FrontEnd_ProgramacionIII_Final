@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/Banner.css';
-import { BrowserRouter, Link, Route, Routes }  from 'react-router-dom';
+import { Link }  from 'react-router-dom';
 
 const Banner = () => {
   return (

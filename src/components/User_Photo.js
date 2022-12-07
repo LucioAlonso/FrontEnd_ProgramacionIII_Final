@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../stylesheets/Header_User.css';
 
 const User_Photo = () => {

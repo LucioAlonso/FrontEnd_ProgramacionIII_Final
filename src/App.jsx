@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react';
-import { BrowserRouter, Link, Navigate, Route, Routes}  from 'react-router-dom';
+import { BrowserRouter, Route, Routes}  from 'react-router-dom';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Secciones from './components/Secciones';

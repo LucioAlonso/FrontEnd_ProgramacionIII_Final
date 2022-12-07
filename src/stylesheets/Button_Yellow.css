@@ -11,8 +11,6 @@
 
 .contenedor-botones-inicio-register {
     display: flex;
-    flex-wrap: wrap;
-    flex : row;
     margin-left: auto;
     margin-top: auto;
     padding-bottom: 15px;

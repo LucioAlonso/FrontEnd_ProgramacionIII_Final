@@ -1,9 +1,7 @@
 import React, {useState, useRef, useEffect } from 'react';
 import '../../stylesheets/Login.css';
-import Input from './components/Input/Input'
 import {Link, Navigate}  from 'react-router-dom';
 import {registerUser} from '../../js/userFetch';
-import useUser from '../../hooks/useUser';
 
 
 
@@ -34,7 +32,7 @@ const Register = () => {
   }, [user, pwd, pwdConfirm, email, name, lastName, dni, phone])
 
   useEffect(()=> {
-    if(pwd != pwdConfirm){
+    if(pwd !== pwdConfirm){
       setErrMsg('Las contraseñas no coinciden');
     }
   }, [pwdConfirm])

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import '../stylesheets/Login.css';
 import useUser from '../hooks/useUser';
 import { addClaim } from '../js/claimsFetch';

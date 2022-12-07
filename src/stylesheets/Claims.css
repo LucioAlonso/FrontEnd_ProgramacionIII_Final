@@ -1,12 +1,23 @@
 .contenedor-general-claim{
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     display: flex;
+    flex-direction: row;
     flex : row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contenedor-global{
+    align-items:center;
+    justify-content: center;
+    padding: 40px 5vmax 40px 5vmax;
     width: 100%;
     padding: 10px;
     border: 1px solid #a0a0a0;
     border-radius: 20px;
     margin-top: 20px;
+    
 }
 
 .info{
@@ -26,10 +37,19 @@
 }
 
 .contenedor-text-estado{
-    padding-left: 30vmin;
+    padding-left: auto;
 }
 
 .contenedor-text-direccion{
     width: 100%;
     padding-right: auto;
+}
+
+.reclamo-text{
+    display: flex;
+    overflow-wrap: anywhere;
+    width: 95%;
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    padding-left: 0.5em;
 }

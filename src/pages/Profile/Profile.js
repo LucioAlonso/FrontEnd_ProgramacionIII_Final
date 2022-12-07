@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../../stylesheets/Profile.css';
-import Input from './components/Input/Input'
-import { BrowserRouter, Link, Route, Routes, Navigate  }  from 'react-router-dom';
+import { Navigate  }  from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 
 const Profile = () => {

@@ -8,6 +8,11 @@
     padding-bottom: 50px;
 }
 
+.contenedor2{
+    align-items:center;
+    justify-content: center;
+}
+
 .text{
     padding-top: 15px;
     size: 11px;
@@ -26,7 +31,7 @@
     align-items:center;
     justify-content: center;
     padding: 40px 5vmax 40px 5vmax;
-    width: 500px;
+    width: 50vmin;
 }
 
 .contenedor-boton{
@@ -34,6 +39,7 @@
     align-items:center;
     justify-content: center;
     padding-top: 5px;
+    width: 100%;
 }
 
 button {

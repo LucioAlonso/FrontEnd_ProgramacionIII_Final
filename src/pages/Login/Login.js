@@ -35,7 +35,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let {data, token} = await loginUser(user, pwd)
-    console.log(token)
+
     if (token){
       userData = {
         data,

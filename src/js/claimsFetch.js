@@ -22,7 +22,7 @@ export const getAllClaims = async claim => {
 	try {
 		let res = await handleFetch(url, options);
 		let claimsData = await res.json();
-		console.log(claimsData)
+
 	} catch (err) {
 		alert(err);
 	}
@@ -63,7 +63,7 @@ export const searchClaims = async (userID, token) => {
 	try {
 		let res = await handleFetch(url, options);
 		let claimsData = await res.json();
-		console.log('estoy aca')
+
 		return claimsData;
 	} catch (err) {
 		return err;
