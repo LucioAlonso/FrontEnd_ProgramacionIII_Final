@@ -9,7 +9,7 @@ const handleError = (res) => {
 }
 
 export const getPerson = async (token, userID) => {
-	let url = `http://192.168.0.134:3000/person/${userID}`;
+	let url = `http://192.168.0.31:3000/person/${userID}`;
 
 	const options = {
 		method: 'GET',
