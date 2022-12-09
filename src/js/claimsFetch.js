@@ -12,7 +12,7 @@ const handleError = (res) => {
 
 //temporal
 export const getAllClaims = async claim => {
-	let url = `http://192.168.0.31:3000/claim/all`;
+	let url = `http://192.168.0.134:3000/claim/all`;
 	const options = {
 		method: 'GET',
 		headers: {
@@ -30,7 +30,7 @@ export const getAllClaims = async claim => {
 
 
 export const addClaim = async (userID, claim , category, residence, token) => {
-	let url = `http://192.168.0.31:3000/claim/${userID}/add`;
+	let url = `http://192.168.0.134:3000/claim/${userID}/add`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify({claim, category, residence}),
@@ -49,7 +49,7 @@ export const addClaim = async (userID, claim , category, residence, token) => {
 };
 
 export const searchClaims = async (userID, token) => {
-	let url = `http://192.168.0.31:3000/claim/${userID}/all`;
+	let url = `http://192.168.0.134:3000/claim/${userID}/all`;
 	const options = {
 		method: 'GET',
 		headers: {
@@ -68,7 +68,7 @@ export const searchClaims = async (userID, token) => {
 
 
 export const resolveClaim = async (_IdClaim, token) => {
-	let url = `http://192.168.0.31:3000/claim/${_IdClaim}/resolved`;
+	let url = `http://192.168.0.134:3000/claim/${_IdClaim}/resolved`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify(),

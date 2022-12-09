@@ -8,7 +8,7 @@ import useUser from '../../hooks/useUser';
 
 const Login = () => {
 
-  const {login, getPersonData} = useUser()
+  const {login, getPersonData, unlogin} = useUser()
 
   const userRef = useRef();
   const errRef = useRef();
@@ -86,12 +86,10 @@ const Login = () => {
             />
             <p ref={errRef} className={errMsg ? "label-alert" : "offscreen"} aria-live = "assertive">{errMsg}</p>
             <div className='contenedor-boton'>
-              <button onClick={handleSubmit}> 
-                Ingresar
-              </button>
+                <button onClick={handleSubmit}> 
+                  Ingresar
+                </button>
             </div>
-
-
           <Link to='/register' className='otras-opciones'>No tengo una cuenta</Link>
           <Link to='/Cuenta/Olvide-mi-contraseña' className='otras-opciones'>Olvidé mi contraseña</Link>
         </div>

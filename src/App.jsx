@@ -22,12 +22,18 @@ const App = () => {
     setUserData(userData)
   }
 
+  function unlogin() {
+    console.log('estoy aca')
+    setUserData(null)
+    setClaimsData(null)
+  }
+
   function getPersonData(personData) {
     setPersonData(personData)
   }
 
   return (  
-    <UserContext.Provider value={{login, getPersonData, userData, personData}}>      
+    <UserContext.Provider value={{unlogin ,login, getPersonData, userData, personData}}>      
       <BrowserRouter>
               <div className="App">   
                 <Header />
@@ -41,7 +47,7 @@ const App = () => {
               <Route path='/register' element={<Register />} />
 
               {/*DIRECCIONES USUARIOS COMUNES LOGUEADOS*/}
-              <Route path='/Cuenta/Profile' element= {<Profile />}/>
+              <Route path='/Cuenta/Profile' element= {<Profile unlogin={unlogin}/>}/>
               <Route path='/Reclamos/Nuevo' element= {<Claim_New />}/>
               <Route path='/Reclamos/Historial' element= {<Claim_History />}/>
 

@@ -15,9 +15,9 @@ const Claims = ({data}) => {
 	const[resolveDate, setResolveDate] = useState(data.resolveDate)
 
 	const dateFormater = (date) => {
-    const newDate = date.split('T')[0].split('-')
-    return `${newDate[2]}/${newDate[1]}/${newDate[0]}`
-  }
+		const newDate = date.split('T')[0].split('-')
+		return `${newDate[2]}/${newDate[1]}/${newDate[0]}`
+  	}
 
 	const moreMenu = () => {
 		if(menuState == false){

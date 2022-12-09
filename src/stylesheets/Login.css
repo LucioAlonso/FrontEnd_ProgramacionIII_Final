@@ -8,9 +8,33 @@
     padding-bottom: 50px;
 }
 
-.contenedor2{
+.contenedor3{
+    display: flex;
     align-items:center;
     justify-content: center;
+}
+
+.contenedor-info-person{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border-radius: 25px;
+    border: 1px solid #a0a0a0;
+    width: 75vmin;
+}
+
+.titulo-box{
+    padding-bottom: 10px;
+}
+
+.text-fijos {
+    padding: 30px;
+    overflow-wrap: anywhere;
+}
+
+.text-nofijos {
+    padding: 30px;
+    overflow-wrap: anywhere;
 }
 
 .text{
@@ -52,6 +76,8 @@ button {
     cursor: pointer;
 }
 
+
+
 .otras-opciones, .otras-opciones:visited{
     display: flex;
     padding: 15px 30px 30px 30px;
@@ -70,3 +96,28 @@ button {
     color: red;
 }
 
+
+.boton{
+    width: 100px;
+    margin: 10px;
+}
+
+.edit-perfil{
+
+}
+
+.titulo-box{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.input-nofijos{
+    display: flex;
+    margin: 50px 0px 50px 0px;
+    overflow-wrap: anywhere;
+    width: 40vmin;
+    height: 30px;
+    padding-left: 5px;
+}
