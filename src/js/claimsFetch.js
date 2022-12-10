@@ -67,6 +67,24 @@ export const searchClaims = async (userID, token) => {
 };
 
 
+export const searchClaimsOtherUser = async (userName, token) => {
+	let url = `http://192.168.0.134:3000/claim/${userName}`;
+	const options = {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		 	 token
+		}
+	}
+	try {
+		let res = await handleFetch(url, options);
+		let claimsData = await res.json();
+		return claimsData;
+	} catch (err) {
+		return err;
+	}
+};
+
 export const resolveClaim = async (_IdClaim, token) => {
 	let url = `http://192.168.0.134:3000/claim/${_IdClaim}/resolved`;
 	const options = {
