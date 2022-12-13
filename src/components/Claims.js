@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import '../stylesheets/Claims.css';
 import useUser from '../hooks/useUser';
-import { resolveClaim } from '../js/claimsFetch';
+import { deleteClaim, resolveClaim } from '../js/claimsFetch';
 
 const Claims = ({data, reload}) => {
   //le puedo pasar por parametros y que lo vaya creando la clase que lo solicita
@@ -34,6 +34,11 @@ const Claims = ({data, reload}) => {
 		} 
 	}
 
+	const changeStateClaim = async () => {
+		let res = await deleteClaim(_id, userData.data._id, userData.token)
+		reload()
+	}
+
   return (
 		<div className='contenedor-global'>
 			<div className='contenedor-general-claim' onClick={moreMenu}>
@@ -46,7 +51,7 @@ const Claims = ({data, reload}) => {
 				</div>
 				<div className='info'>
 					<h4 className='contenedor-text-fecha'>Fecha: {dateFormater(data.createDate)}</h4>
-					<h4 className='contenedor-text-estado'>{data.state == 'enabled' ? <h4 className='sin-resolver'>Sin Resolver</h4> : <h4 className='resuelto'>Resuelto</h4>}</h4>
+					<h4 className='contenedor-text-estado'>{data.resolveDate == null ? <h4 className='sin-resolver'>Sin Resolver</h4> : <h4 className='resuelto'>Resuelto</h4>}</h4>
 				</div>
 				
 			</div>
@@ -57,12 +62,11 @@ const Claims = ({data, reload}) => {
 							{claim}
 						</textarea>
 						<p className='contenedor-text-direccion'>Dirección: {data.residence}</p>
-						{data.state == 'disabled' ? <p className='sin-resolver'>Finalizada: {dateFormater(data.resolveDate)}</p> : <></>}
-						{userData.data.rol == "admin" && data.state =="enabled"
+						{data.resolveDate != null ? <p className='sin-resolver'>Finalizada: {dateFormater(data.resolveDate)}</p> : <></>}
+						<button onClick={changeStateClaim}>Eliminar Reclamo</button>
+						{userData.data.rol == "admin" && data.resolveDate == null
 						? 
-						<button onClick={finishClim}>
-							Finalizar
-						</button>
+						<button onClick={finishClim}>Finalizar</button>
 						: 
 						<></>
 						}

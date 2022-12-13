@@ -103,3 +103,23 @@ export const resolveClaim = async (_IdClaim, token) => {
 		return err;
 	}
 };
+
+
+export const deleteClaim = async (_IdClaim, userID, token) => {
+	let url = `http://${ipHost}/claim/${userID}/${_IdClaim}/disabled`;
+	const options = {
+		method: 'POST',
+		body: JSON.stringify(),
+		headers: {
+			'Content-Type': 'application/json',
+		 	 token
+		}
+	}
+	try {
+		let res = await handleFetch(url, options);
+		let claimsData = await res.json();
+		return claimsData;
+	} catch (err) {
+		return err;
+	}
+};

@@ -50,16 +50,26 @@ const Claim_History = () => {
   
       if(stateText != ''){
         res.data.forEach(c => {
-          const {state} = c;
-          if(state == stateText){
+          const {resolveDate, state} = c;
+          if(stateText == "enabled" && resolveDate == null && state == "enabled"){
             console.log(c)
+            resFilter.push(c);
+          } else if (stateText == "disabled" && resolveDate != null && state == "enabled"){
+            console.log(c)
+            resFilter.push(c);
+          } 
+        }) 
+      } else {
+        res.data.forEach(c => {
+          const {state} = c;
+          if (state == "enabled"){
             resFilter.push(c);
           }
         })
-        res.data = resFilter
       }
     }
-    
+  
+    res.data = resFilter
     
     if(!res.data){
       setErrMsg('El usuario ingresado no existe en la base de datos')
