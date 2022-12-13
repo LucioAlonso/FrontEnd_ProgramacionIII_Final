@@ -1,3 +1,5 @@
+import { ipHost } from "../config/config";
+
 const handleFetch = async (url, options) => {
 	const res = await fetch(url, options);
 	return await handleError(res);
@@ -9,7 +11,7 @@ const handleError = (res) => {
 }
 
 export const getPerson = async (token, userID) => {
-	let url = `http://192.168.0.134:3000/person/${userID}`;
+	let url = `http://${ipHost}/person/${userID}`;
 
 	const options = {
 		method: 'GET',
@@ -29,7 +31,7 @@ export const getPerson = async (token, userID) => {
 
 
 export const editPerson = async (token, name, lastname, dni, mail, phone) => {
-	let url = `http://192.168.0.134:3000/person/edit`;
+	let url = `http://${ipHost}/person/edit`;
 
 	const options = {
 		method: 'PUT',

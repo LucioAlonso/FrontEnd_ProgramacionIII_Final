@@ -14,55 +14,66 @@ const Claim_History = () => {
 
   const [type, setType] = useState('');
   const [stateText, setStateText ] = useState('');
-  const [claimRes, setClaimRes ] = useState('');
+  const [claimRes, setClaimRes ] = useState(null);
   const [usuarioSearch, setUsuarioSearch ] = useState('');
 
   const [errMsg, setErrMsg] = useState('');
 
   useEffect(()=> {
     setErrMsg('');
-  }, [type, stateText])
-
-
-
+  }, [type, stateText, usuarioSearch])
 
  const searchClaim = async () => {
-    let res = []
+    let res = null
 
     if(usuarioSearch == ''){
       res = await searchClaims(userData.data._id, userData.token);
     } else {
       res = await searchClaimsOtherUser(usuarioSearch, userData.token);
     }
-
+    
     let resFilter = [];
+    
 
-    if(type != ''){  
-      res.data.forEach(c => {
-        const {category} = c;
-        if(category == type){
-          resFilter.push(c);
-        }
-      })
-      res.data = resFilter
+    if(res.data){
+      if(type != ''){  
+        res.data.forEach(c => {
+          const {category} = c;
+          if(category == type){
+            resFilter.push(c);
+          }
+        })
+        res.data = resFilter
+      }
+  
+      resFilter = []
+  
+      if(stateText != ''){
+        res.data.forEach(c => {
+          const {state} = c;
+          if(state == stateText){
+            console.log(c)
+            resFilter.push(c);
+          }
+        })
+        res.data = resFilter
+      }
     }
-
-    resFilter = []
-
-    if(stateText != ''){
-      res.data.forEach(c => {
-        const {state} = c;
-
-        if(state == stateText){
-          resFilter.push(c);
-        }
-      })
-      res.data = resFilter
-    } 
-    if (res.data == ""){
-      setErrMsg('No hay reclamos de este tipo')
+    
+    
+    if(!res.data){
+      setErrMsg('El usuario ingresado no existe en la base de datos')
+      setClaimRes(null);
+    } else if (res.data == "" && type == '' && stateText == '' && !res.err){
+      setErrMsg('El usuario no tiene reclamos.')
+      setClaimRes(null);
     }
-    setClaimRes(res.data);    
+    else if (res.data == "" && !res.err){
+      setErrMsg('No hay reclamos de este tipo.')
+      setClaimRes(null);
+    } else {
+      setClaimRes(res.data);    
+    }
   }
 
   return (
@@ -109,15 +120,15 @@ const Claim_History = () => {
               </div>
               <p ref={errRef} className={errMsg ? "label-alert" : "offscreen"} aria-live = "assertive">{errMsg}</p>
             {
-                  claimRes != '' ? 
+                  claimRes != null ? 
                   (claimRes.map(c => {
                     return (
-                      <Claims data={c}/>
+                      <Claims data={c} reload={searchClaim}/>
                       );
-                    }) )
+                    }) 
+                  )
                     :
                     <></>
-                    
             }
             </div>
           </div>

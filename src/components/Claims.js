@@ -4,15 +4,13 @@ import '../stylesheets/Claims.css';
 import useUser from '../hooks/useUser';
 import { resolveClaim } from '../js/claimsFetch';
 
-const Claims = ({data}) => {
+const Claims = ({data, reload}) => {
   //le puedo pasar por parametros y que lo vaya creando la clase que lo solicita
-  const {userData} = useUser();
+  const {userData, searchClaim} = useUser();
 
   const {_id ,claim, category, residence, createDate} = data;
 
 	const[menuState, setMenuState] = useState(false)
-	const[state, setState] = useState(data.state)
-	const[resolveDate, setResolveDate] = useState(data.resolveDate)
 
 	const dateFormater = (date) => {
 		const newDate = date.split('T')[0].split('-')
@@ -32,8 +30,7 @@ const Claims = ({data}) => {
 		let res = await resolveClaim(_id, userData.token)
 		console.log(res)
 		if(res.res == true){
-			setResolveDate(res.res.resolveClaim)
-			setState(res.res.state)
+			reload()
 		} 
 	}
 
@@ -48,8 +45,8 @@ const Claims = ({data}) => {
 						/>
 				</div>
 				<div className='info'>
-					<h4 className='contenedor-text-fecha'>Fecha: {dateFormater(createDate)}</h4>
-					<h4 className='contenedor-text-estado'>{state == 'enabled' ? <h4 className='sin-resolver'>Sin Resolver</h4> : <h4 className='resuelto'>Resuelto</h4>}</h4>
+					<h4 className='contenedor-text-fecha'>Fecha: {dateFormater(data.createDate)}</h4>
+					<h4 className='contenedor-text-estado'>{data.state == 'enabled' ? <h4 className='sin-resolver'>Sin Resolver</h4> : <h4 className='resuelto'>Resuelto</h4>}</h4>
 				</div>
 				
 			</div>
@@ -59,9 +56,9 @@ const Claims = ({data}) => {
 						<textarea className='reclamo-text' disabled rows={10}>
 							{claim}
 						</textarea>
-						<p className='contenedor-text-direccion'>Dirección: {residence}</p>
-						{state == 'disabled' ? <p className='sin-resolver'>Finalizada: {dateFormater(resolveDate)}</p> : <></>}
-						{userData.data.rol == "admin" && state =="enabled"
+						<p className='contenedor-text-direccion'>Dirección: {data.residence}</p>
+						{data.state == 'disabled' ? <p className='sin-resolver'>Finalizada: {dateFormater(data.resolveDate)}</p> : <></>}
+						{userData.data.rol == "admin" && data.state =="enabled"
 						? 
 						<button onClick={finishClim}>
 							Finalizar

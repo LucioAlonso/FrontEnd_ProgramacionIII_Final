@@ -1,0 +1,1 @@
+export const ipHost = '192.168.0.134:3000'

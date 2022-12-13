@@ -1,4 +1,4 @@
-
+import { ipHost } from "../config/config"; 
 
 const handleFetch = async (url, options) => {
 	const res = await fetch(url, options);
@@ -12,7 +12,7 @@ const handleError = (res) => {
 
 //temporal
 export const getAllClaims = async claim => {
-	let url = `http://192.168.0.134:3000/claim/all`;
+	let url = `http://${ipHost}/claim/all`;
 	const options = {
 		method: 'GET',
 		headers: {
@@ -30,7 +30,7 @@ export const getAllClaims = async claim => {
 
 
 export const addClaim = async (userID, claim , category, residence, token) => {
-	let url = `http://192.168.0.134:3000/claim/${userID}/add`;
+	let url = `http://${ipHost}/claim/${userID}/add`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify({claim, category, residence}),
@@ -49,7 +49,7 @@ export const addClaim = async (userID, claim , category, residence, token) => {
 };
 
 export const searchClaims = async (userID, token) => {
-	let url = `http://192.168.0.134:3000/claim/${userID}/all`;
+	let url = `http://${ipHost}/claim/${userID}/all`;
 	const options = {
 		method: 'GET',
 		headers: {
@@ -68,7 +68,7 @@ export const searchClaims = async (userID, token) => {
 
 
 export const searchClaimsOtherUser = async (userName, token) => {
-	let url = `http://192.168.0.134:3000/claim/${userName}`;
+	let url = `http://${ipHost}/claim/${userName}`;
 	const options = {
 		method: 'GET',
 		headers: {
@@ -86,7 +86,7 @@ export const searchClaimsOtherUser = async (userName, token) => {
 };
 
 export const resolveClaim = async (_IdClaim, token) => {
-	let url = `http://192.168.0.134:3000/claim/${_IdClaim}/resolved`;
+	let url = `http://${ipHost}/claim/${_IdClaim}/resolved`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify(),

@@ -1,3 +1,5 @@
+import { ipHost } from "../config/config";
+
 const handleFetch = async (url, options) => {
 	const res = await fetch(url, options);
 	return await handleError(res);
@@ -9,7 +11,7 @@ const handleError = (res) => {
 }
 
 export const loginUser = async (userName, password) => {
-	let url = `http://192.168.0.134:3000/user/login`;
+	let url = `http://${ipHost}/user/login`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify({userName, password}),
@@ -29,7 +31,7 @@ export const loginUser = async (userName, password) => {
 
 
 export const registerUser = async (userName, password, name, lastname, dni, phone, mail) => {
-	let url = `http://192.168.0.134:3000/user/register`;
+	let url = `http://${ipHost}/user/register`;
 	const options = {
 		method: 'POST',
 		body: JSON.stringify({userName, password, name, lastname, dni, phone, mail}),
