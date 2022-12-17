@@ -5,10 +5,10 @@ import Header from './components/Header';
 import Banner from './components/Banner';
 import Secciones from './components/Secciones';
 import Claim_New from './components/Claim_New';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import OlvideMiContraseña from './pages/OlvideMiContraseña/OlvideMiContraseña';
-import Profile from './pages/Profile/Profile';
+import Login from './components/Login';
+import Register from './components/Register';
+import OlvideMiContraseña from './components/OlvideMiContraseña';
+import Profile from './components/Profile';
 import UserContext from './context/UserContext';
 import Claim_History from './components/Claim_History';
 

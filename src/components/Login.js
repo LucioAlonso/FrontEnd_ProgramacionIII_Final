@@ -1,10 +1,10 @@
 import React, {useState, useRef, useEffect } from 'react';
-import '../../stylesheets/Login.css';
-import './components/Input/Input.css';
+import '../stylesheets/Login.css';
+import '../stylesheets/Input.css';
 import {Link, Navigate}  from 'react-router-dom';
-import {loginUser} from '../../js/userFetch';
-import {getPerson} from '../../js/personFetch';
-import useUser from '../../hooks/useUser';
+import {loginUser} from '../js/userFetch'; 
+import {getPerson} from '../js/personFetch';
+import useUser from '../hooks/useUser';
 
 const Login = () => {
 

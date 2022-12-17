@@ -1,1 +1,1 @@
-export const ipHost = '172.16.0.147:3000'
+export const ipHost = '192.168.0.134:3000'

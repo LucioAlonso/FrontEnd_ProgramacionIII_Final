@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/OlvideMiContraseña.css';
+import '../stylesheets/OlvideMiContraseña.css';
 
 
 

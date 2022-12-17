@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../stylesheets/Login.css';
+import '../stylesheets/Login.css';
 import { Navigate }  from 'react-router-dom';
-import useUser from '../../hooks/useUser';
+import useUser from '../hooks/useUser';
 import { useState } from 'react';
 import { useRef } from 'react';
-import { editPerson } from '../../js/personFetch';
+import { editPerson } from '../js/personFetch';
 import { useEffect } from 'react';
 
 const Profile = () => {

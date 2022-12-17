@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect } from 'react';
-import '../../stylesheets/Login.css';
+import '../stylesheets/Login.css';
 import {Link, Navigate}  from 'react-router-dom';
-import {registerUser} from '../../js/userFetch';
+import {registerUser} from '../js/userFetch';
 
 
 
